@@ -58,27 +58,23 @@ This setup ensures that your service enforces mandatory headers for both GET and
 1. __test_get_data_with_missing_headers__: Tests the GET request when no headers are provided. It should return a 400 status with an appropriate error message.
 1. __test_get_data_with_no_posts__: Tests the GET request when no POST requests have been made yet, ensuring the service returns an empty data list.
 1. __test_get_data_with_query_parameters__: Tests the GET request with additional query parameters.
-
+### PATCH
 1. __test_patch_data_invalid_json__: Tests the PATCH request with invalid JSON.
 1. __test_patch_data_nonexistent__: Tests the PATCH request to partially update a non-existing item.
 1. __test_patch_data_out_of_range__: Tests that PATCH request for out of range is properly handled.
 1. __test_patch_data_success__: Tests the PATCH request to partially update an existing item.
-
+### POST
+1. __test_post_data_duplicate__: Ensure the service can handle duplicate entries for the POST call.
+1. __test_post_data_invalid_json__: Ensures that the POST request correctly handles invalid JSON input.
 1. __test_post_data_success__: Verifies that a valid POST request adds data and returns the correct message.
-1. __test_post_data_invalid_json__: Ensures that the service correctly handles invalid JSON input.
-1. __test_missing_headers_on_post__: Tests the POST request with only the Content-Type header provided, missing the required headers.
-1. __test_invalid_header_value_on_post__: Similar to the previous test, but for the POST request.
+1. __test_post_data_with_identical_values__: Checks if the service can handle multiple POST requests with identical values correctly, and verifies that all instances are returned by a subsequent GET request.
+1. __test_post_data_with_invalid_content_type__: Ensures the POST request responds correctly when a request is made with an incorrect Content-Type.
+1. __test_post_data_with_invalid_header_value__: Tests the POST request with headers that have invalid values.
+1. __test_post_data_with_missing_authorization_header__: Tests that the POST request responds correctly when authorization header is missing.
+1. __test_post_data_with_missing_x_requested_with_header__: Tests the the POST request responds correctly when X-Requested-With header is missing.
 1. __test_post_multiple_calls__: This test sends multiple POST requests and checks if all the responses are successful. After all the POSTs, it performs a GET request to verify that all the posted data is correctly aggregated and returned.
-1. __test_post_data_with_identical_values__: This test checks if the service can handle multiple POST requests with identical values correctly, and verifies that all instances are returned by a subsequent GET request.
-
-
-1. __test_put_data_success__: Tests the PUT request to update an existing item.
+### PUT
+1. __test_put_data_invalid_json__: Tests that the PUT request with invalid JSON input is properly handled.
+1. __test_put_data_nonexistent__: Tests that PUT request for non-existent data is properly handled.
 1. __test_put_data_out_of_range__: Tests that PUT request for out of range is properly handled.
-
-1. Attempt to update items that don't exist.
-
-1. Ensure the service responds correctly when a request is made with an incorrect Content-Type.
-1. Ensure the service can handle and correctly return data when duplicate entries are posted.
-
-1. Test Different Header Combinations
-1. Test valid requests with missing optional headers to ensure the service handles them properly.
+1. __test_put_data_success__: Tests the PUT request to update an existing item.
